@@ -3,11 +3,21 @@ import axios from 'axios';
 import CharCard from './components/characterCard';
 import './App.css';
 import styled from 'styled-components';
+import SearchComponent from './components/Search';
 
 const CharContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+`;
+
+const Loading = styled.h2`
+  background: black;
+  color: yellow;
+  border 4px solid yellow;
+  border-radius: 10px;
+  padding: 7%;
+
 `;
 
 const App = () => {
@@ -31,9 +41,12 @@ const App = () => {
     });
   }, []);
 
+  
+
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
+      
       <CharContainer>
       {characters.length === 0 ? <Loading>Loading...</Loading> : characters.map((char, idx) => (
         <CharCard key={idx}

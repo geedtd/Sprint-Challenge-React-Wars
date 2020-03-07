@@ -10,6 +10,15 @@ const CharContainer = styled.div`
   justify-content: space-evenly;
 `;
 
+const Loading = styled.h2`
+  background: black;
+  color: yellow;
+  border 4px solid yellow;
+  border-radius: 10px;
+  padding: 7%;
+
+`;
+
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -34,9 +43,9 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
+      <input type='text' value={this.StaticRange.search}/>
       <CharContainer>
-  // added loading message 
-      {characters.length === 0 ? <h2>Loading...</h2> : characters.map((char, idx) => (
+      {characters.length === 0 ? <Loading>Loading...</Loading> : characters.map((char, idx) => (
         <CharCard key={idx}
         name={char.name}
         birth={char["birth_year"]}

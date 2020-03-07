@@ -1,6 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import CharCard from './components/characterCard';
 import './App.css';
+import styled from 'styled-components';
+
+const CharContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+`;
+
+const Loading = styled.h2`
+  background: black;
+  color: yellow;
+  border 4px solid yellow;
+  border-radius: 10px;
+  padding: 7%;
+
+`;
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -23,9 +40,27 @@ const App = () => {
     });
   }, []);
 
+  constructor() 
+    super();
+    this.state = {
+      search: 'Search Characters'
+    };
+  
+
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
+      <input type='text' value={this.state.search}/>
+      <CharContainer>
+      {characters.length === 0 ? <Loading>Loading...</Loading> : characters.map((char, idx) => (
+        <CharCard key={idx}
+        name={char.name}
+        birth={char["birth_year"]}
+        height={char.height}
+        weight={char.mass} />
+      )
+      )}
+      </CharContainer>
     </div>
   );
 }
