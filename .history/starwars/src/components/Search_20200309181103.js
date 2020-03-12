@@ -31,10 +31,10 @@ button {
 `;
 
 
-const SearchComponent = () => {
-    // state = {
-    //     searchValue: '',
-    // };
+// const SearchComponent = () => {
+//     state = {
+//         searchValue: '',
+//     };
     // handleOnChange = event => {
     //     this.setState({ searchValue: event.target.value});
     // };
@@ -51,7 +51,7 @@ const SearchComponent = () => {
                 //onChange={event => this.handleOnChange(event)}
                 //value={this.state.searchValue}    
                 />
-            {/* <button onClick={this.handleSearch}>Search</button> */}
+            <button onClick={this.handleSearch}>Search</button>
         </Search>
          
         );
