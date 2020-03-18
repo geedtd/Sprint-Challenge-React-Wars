@@ -46,7 +46,7 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      <SearchComponent />
+      
       <CharContainer>
       {characters.length === 0 ? <Loading>Loading...</Loading> : characters.map((char, idx) => (
         <CharCard key={idx}

@@ -3,7 +3,6 @@ import axios from 'axios';
 import CharCard from './components/characterCard';
 import './App.css';
 import styled from 'styled-components';
-import SearchComponent from './components/Search';
 
 const CharContainer = styled.div`
   display: flex;
@@ -41,12 +40,19 @@ const App = () => {
     });
   }, []);
 
-  
+  const [searchTerm, setSearchTerm ] = useState("");
+  const  handleChange = () => {
+    setSearchTerm(event.target.value)
+  }
 
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
-      <SearchComponent />
+      <input 
+        type='text'
+        placeholder="Search Characters"
+        value={searchTerm}
+        onChange={handleChange} />
       <CharContainer>
       {characters.length === 0 ? <Loading>Loading...</Loading> : characters.map((char, idx) => (
         <CharCard key={idx}
